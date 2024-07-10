@@ -23,12 +23,6 @@ public class ToDoServiceImpl implements ToDoService{
         String description = toDo.getDescription();
         Date due_date = toDo.getDue_date();
 
-        Optional<ToDo> existingToDo = toDoRepo.findById(toDo.getId());
-
-        if (existingToDo.isPresent()) {
-            throw new ToDoException(ToDoException.AlreadyExists());
-        }
-
         ToDo newToDo = new ToDo();
         newToDo.setTitle(title);
         newToDo.setDescription(description);
